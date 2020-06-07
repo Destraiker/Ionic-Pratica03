@@ -8,6 +8,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -15,7 +17,11 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab2PageRoutingModule
+    
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page],
+  providers: [
+    NativeStorage
+  ]
 })
 export class Tab2PageModule {}

@@ -13,5 +13,50 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-grid >
+    <ion-row>
+      <ion-col *ngIf="cadastrado===false">
+        <ion-list>
+          <form #formCadastro="ngForm"  (ngSubmit)="cadastrar(formCadastro)">
+            <ion-item>
+              <ion-label>Cadastrar usuario: </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-input [(ngModel)]="pessoa.first_name" name="first_name" type="text" placeholder="Nome"></ion-input></ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-input [(ngModel)]="pessoa.last_name" name="last_name" type="text" placeholder="Sobrenome"></ion-input></ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-input [(ngModel)]="pessoa.gender" name="gender" type="text" placeholder="Genero"></ion-input></ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-input [(ngModel)]="pessoa.email" name="email" type="text" placeholder="Email"></ion-input></ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-button expand="full" type="submit">Confirmar</ion-button></ion-label>
+            </ion-item>
+            
+          </form>
+        </ion-list>
+      </ion-col>
+
+      <ion-col *ngIf="cadastrado">
+        <ion-list>
+          <ion-item>
+            <ion-label>Você já tem cadastro: </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nome: {{pessoa.first_name}} {{pessoa.last_name}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Genero: {{pessoa.gender}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Email: {{pessoa.email}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
